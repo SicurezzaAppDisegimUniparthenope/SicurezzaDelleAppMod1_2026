@@ -17,6 +17,7 @@ git clone https://github.com/SicurezzaAppDisegimUniparthenope/SicurezzaDelleAppM
 cd SicurezzaDelleAppMod1_2026
 docker compose up -d
 ```
+
 **Le volte successive**, per aggiornare il repository ed eseguire il container, eseguire i seguenti comandi:
 
 ```bash
@@ -42,4 +43,5 @@ L'utente con permessi di amministrazione è toor:
 - Password: `toor`
 
 ## Sorgenti
-I sorgenti del container Docker sono disponibili nel progetto [SicurezzaDelleAppMod1_2026_Builder](https://github.com/SicurezzaAppDisegimUniparthenope/SicurezzaDelleAppMod1_2026)
+
+I sorgenti del container Docker sono disponibili nel progetto [Builder del progetto Sicurezza delle Applicazioni - Modulo 1 - 2026](https://github.com/SicurezzaAppDisegimUniparthenope/SicurezzaDelleAppMod1_2026_builder)
