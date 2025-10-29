@@ -1,0 +1,13 @@
+services:
+  phoenix:
+    hostname: phoenixctf
+    image: ghcr.io/sicurezzaappdisegimuniparthenope/sicurezzadelleappmod1_2026_builder:latest
+    privileged: true
+    ports:
+        - "2222:22"
+    volumes:
+      - homes:/home
+      - ./data:/home/user/ctf
+volumes:
+  homes:
+    driver: local
